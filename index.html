@@ -8,18 +8,18 @@
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
-    Vue.component('tv-show-list',{
-        data:function(){
-       return{
-        tvshows: [
-                { name: 'Game of thrones', seasons: 7 },
-                { name: 'Breacking bad', seasons: 5 },
-                { name: 'Lost', seasons: 6 },
-                { name: 'Battlestar Galactica', seasons: 4 }
-            ]
-       }
-        },
-        template:`
+        Vue.component('tv-show-list', {
+            data: function () {
+                return {
+                    tvshows: [
+                        { name: 'Game of thrones', seasons: 7 },
+                        { name: 'Breacking bad', seasons: 5 },
+                        { name: 'Lost', seasons: 6 },
+                        { name: 'Battlestar Galactica', seasons: 4 }
+                    ]
+                }
+            },
+            template: `
         <ul>
             
         <tv-show 
@@ -31,44 +31,44 @@
             </ul>
 
         `
-    })
-    
+        })
 
-    Vue.component('tv-show',{
-        props:{
-            name:String,
-            seasons:Number,
-        },
-        template:`
+
+        Vue.component('tv-show', {
+            props: {
+                name: String,
+                seasons: Number,
+            },
+            template: `
        <li>
         <strong>{{name}}</strong>({{seasons}} Temporadas)
         </li>
          `
-    })
+        })
     </script>
 </head>
 
 <body>
     <div id='app'>
         <button @click="changeVisibility"> mostrar/ocultar</button>
-       <tv-show-list></tv-show-list>
+        <tv-show-list></tv-show-list>
     </div v-hide="mostrar">
     no hay datos
-</div>
-</div>
-<script>
-    const app = new Vue({
-        el: '#app',
-        data: {
-            mostrar: true,
-          
-        },
-        methods:{
-            changeVisibility: function(){
-                this.mostrar= !this.mostrar
+    </div>
+    </div>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                mostrar: true,
+
+            },
+            methods: {
+                changeVisibility: function () {
+                    this.mostrar = !this.mostrar
+                }
             }
-        }
-    })
+        })
     </script>
 </body>
 
